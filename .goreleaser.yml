@@ -73,42 +73,42 @@ brews:
     homepage: "https://github.com/joemiller/certsponge"
     description: Utility for splitting Vault's PKI output into one or more files containing the private key, certificate, and CA data
 
-# dockers:
-#   # primary docker image for amd64 arch
-#   - dockerfile: Dockerfile
-#     ids:
-#       - certsponge
-#     goos: linux
-#     goarch: amd64
-#     image_templates:
-#       - "joemiller/certsponge:{{ .Tag }}" # v1.0.0
-#       - "joemiller/certsponge:v{{ .Major }}" # v1
-#       - "joemiller/certsponge:v{{ .Major }}.{{ .Minor }}" # v1.0
-#       - "joemiller/certsponge:latest"
-#   # build a docker image for arm64 arch
-#   - dockerfile: Dockerfile
-#     ids:
-#       - certsponge
-#     goos: linux
-#     goarch: arm64
-#     goarm: ""
-#     image_templates:
-#       - "joemiller/certsponge:{{ .Tag }}-arm64" # v1.0.0
-#       - "joemiller/certsponge:v{{ .Major }}-arm64" # v1
-#       - "joemiller/certsponge:v{{ .Major }}.{{ .Minor }}-arm64" # v1.0
-#       - "joemiller/certsponge:latest-arm64"
-#   # build a docker image for arm
-#   - dockerfile: Dockerfile
-#     ids:
-#       - certsponge
-#     goos: linux
-#     goarch: arm
-#     goarm: ""
-#     image_templates:
-#       - "joemiller/certsponge:{{ .Tag }}-arm" # v1.0.0
-#       - "joemiller/certsponge:v{{ .Major }}-arm" # v1
-#       - "joemiller/certsponge:v{{ .Major }}.{{ .Minor }}-arm" # v1.0
-#       - "joemiller/certsponge:latest-arm"
+dockers:
+  # primary docker image for amd64 arch
+  - dockerfile: Dockerfile
+    ids:
+      - certsponge
+    goos: linux
+    goarch: amd64
+    image_templates:
+      - "ghcr.io/joemiller/certsponge:{{ .Tag }}" # v1.0.0
+      - "ghcr.io/joemiller/certsponge:v{{ .Major }}" # v1
+      - "ghcr.io/joemiller/certsponge:v{{ .Major }}.{{ .Minor }}" # v1.0
+      - "ghcr.io/joemiller/certsponge:latest"
+  # build a docker image for arm64 arch
+  - dockerfile: Dockerfile
+    ids:
+      - certsponge
+    goos: linux
+    goarch: arm64
+    goarm: ""
+    image_templates:
+      - "ghcr.io/joemiller/certsponge:{{ .Tag }}-arm64" # v1.0.0
+      - "ghcr.io/joemiller/certsponge:v{{ .Major }}-arm64" # v1
+      - "ghcr.io/joemiller/certsponge:v{{ .Major }}.{{ .Minor }}-arm64" # v1.0
+      - "ghcr.io/joemiller/certsponge:latest-arm64"
+  # build a docker image for arm
+  - dockerfile: Dockerfile
+    ids:
+      - certsponge
+    goos: linux
+    goarch: arm
+    goarm: ""
+    image_templates:
+      - "ghcr.io/joemiller/certsponge:{{ .Tag }}-arm" # v1.0.0
+      - "ghcr.io/joemiller/certsponge:v{{ .Major }}-arm" # v1
+      - "ghcr.io/joemiller/certsponge:v{{ .Major }}.{{ .Minor }}-arm" # v1.0
+      - "ghcr.io/joemiller/certsponge:latest-arm"
 
 # ## generate RPM and DEB packages
 nfpms:
