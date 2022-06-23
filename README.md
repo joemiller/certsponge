@@ -14,8 +14,9 @@ Install latest using `go install`:
 go install github.com/joemiller/certsponge@latest
 ```
 
-Pre-built binaries, packages, and docker images are available for various platforms on the [GitHub Releases](https://github.com/joemiller/certsponge/releases) page.
+Pre-built binaries and packages are available for various platforms on the [GitHub Releases](https://github.com/joemiller/certsponge/releases) page.
 
+Docker images are available on [ghcr.io](https://github.com/joemiller/certsponge/pkgs/container/certsponge).
 
 ## Usage
 
@@ -41,7 +42,7 @@ Existing files will not be overwritten unless `-f` flag is specified.
 
 ## Motivation
 
-I got tired of writing blocks this (and many other variations) in scripts:
+I got tired of writing blocks like this (and many other variations) in scripts:
 
 ```sh
 out=$(vault write -format=json pki/issue/myrole common_name=foo)
