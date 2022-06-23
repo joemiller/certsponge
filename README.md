@@ -2,9 +2,20 @@
 
 Utility for splitting Vault's PKI output into one or more files containing the private key, certificate, and CA data.
 
+```console
+vault write pki -format=json pki/issue/rolename common_name=web.dom.tld | certsponge
+```
+
 ## Install
 
-TODO: support: go-install, github binaries, docker images
+Install latest using `go install`:
+
+```console
+go install github.com/joemiller/certsponge@latest
+```
+
+Pre-built binaries, packages, and docker images are available for various platforms on the [GitHub Releases](https://github.com/joemiller/certsponge/releases) page.
+
 
 ## Usage
 
