@@ -3,12 +3,15 @@ package main
 import (
 	"encoding/json"
 	"flag"
+	"fmt"
 	"io/fs"
 	"io/ioutil"
 	"log"
 	"os"
 	"strings"
 )
+
+var version = "development"
 
 const (
 	sensitiveFileMode    = 0o600
@@ -38,13 +41,20 @@ func main() {
 	keyFile := ""
 	certFile := ""
 	force := false
+	printVersion := false
 
 	flag.StringVar(&bundleFile, "bundle", "tls.pem", "Path to the PEM bundle file to write containing: private_key, certificate, and ca_chain. Set to \"\" to disable.")
 	flag.StringVar(&caFile, "ca-cert", "ca.crt", "Path to the CA bundle file to write containing: ca_chain. Set to \"\" to disable.")
 	flag.StringVar(&keyFile, "key", "", "Path to the file to write the private_key.")
 	flag.StringVar(&certFile, "cert", "", "Path to the file to write the certificate.")
 	flag.BoolVar(&force, "f", false, "Force overwriting of existing files.")
+	flag.BoolVar(&printVersion, "v", false, "Print version and exit.")
 	flag.Parse()
+
+	if printVersion {
+		fmt.Println(version)
+		os.Exit(0)
+	}
 
 	input, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {

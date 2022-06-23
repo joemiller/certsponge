@@ -5,3 +5,4 @@ tls.key
 tls.pem
 ca.crt
 certsponge
+dist/
