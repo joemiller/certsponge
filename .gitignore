@@ -6,3 +6,4 @@ tls.pem
 ca.crt
 certsponge
 dist/
+cover.out
