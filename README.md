@@ -2,21 +2,32 @@
 
 Utility for splitting Vault's PKI output into one or more files containing the private key, certificate, and CA data.
 
+Creates `tls.pem` and `ca.crt`:
+
 ```console
 vault write pki -format=json pki/issue/rolename common_name=web.dom.tld | certsponge
 ```
 
-## Install
-
-Install latest using `go install`:
+Override default behavior with flags. `certsponge -h` for usage:
 
 ```console
-go install github.com/joemiller/certsponge@latest
+vault write -format=json pki/issue/rolename common_name=web.dom.tld \
+  | certsponge \
+    -bundle "" \
+    -key tls.key \
+    -cert tls.crt \
+    -ca-cert ca.crt
 ```
 
-Pre-built binaries and packages are available for various platforms on the [GitHub Releases](https://github.com/joemiller/certsponge/releases) page.
+## Install
 
-Docker images are available on [ghcr.io](https://github.com/joemiller/certsponge/pkgs/container/certsponge).
+* Install latest using `go install`: `go install github.com/joemiller/certsponge@latest`
+
+* macOS Homebrew/Linuxbrew: `brew install joemiller/taps/certsponge`
+
+* Pre-built binaries and packages are available for various platforms on the [GitHub Releases](https://github.com/joemiller/certsponge/releases) page.
+
+* Docker images are available on [ghcr.io](https://github.com/joemiller/certsponge/pkgs/container/certsponge).
 
 ## Usage
 
